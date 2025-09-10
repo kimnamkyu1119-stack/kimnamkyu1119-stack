@@ -4,8 +4,8 @@
   <img src="./logo.jpg" height="200px" />
 </p>
 
-<h1 align="center">👩‍💻 Aebon Lee | AI & Education Specialist 🧩</h1>
-<h3 align="center"><i>"기술과 교육을 연결하고, 실천으로 혁신을 만드는 교육 설계자"</i></h3>
+<h1 align="center">👩‍💻 namkyu | 12 🧩</h1>
+<h3 align="center"><i>"유니센터"</i></h3>
 
 <p align="center">
   <!-- Animated typing SVG -->
