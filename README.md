@@ -5,7 +5,7 @@
 </p>
 
 <h1 align="center">👩‍💻 namkyu | 12 🧩</h1>
-<h3 align="center"><i>"유니센터"</i></h3>
+<h3 align="center"><i>"유니센터 연습용"</i></h3>
 
 <p align="center">
   <!-- Animated typing SVG -->
