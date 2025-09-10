@@ -1,372 +1,163 @@
-<!DOCTYPE html>
-<html>
-
-<head>
-    <title>README.md</title>
-    <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
-    
-<style>
-/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
-/*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
- *  Licensed under the MIT License. See License.txt in the project root for license information.
- *--------------------------------------------------------------------------------------------*/
-
-body {
-	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
-	font-size: var(--vscode-markdown-font-size, 14px);
-	padding: 0 26px;
-	line-height: var(--vscode-markdown-line-height, 22px);
-	word-wrap: break-word;
-}
-
-html,footer,header{
-	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
-	font-size: var(--vscode-markdown-font-size, 14px);
-}
-
-#code-csp-warning {
-	position: fixed;
-	top: 0;
-	right: 0;
-	color: white;
-	margin: 16px;
-	text-align: center;
-	font-size: 12px;
-	font-family: sans-serif;
-	background-color:#444444;
-	cursor: pointer;
-	padding: 6px;
-	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
-}
-
-#code-csp-warning:hover {
-	text-decoration: none;
-	background-color:#007acc;
-	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
-}
-
-body.scrollBeyondLastLine {
-	margin-bottom: calc(100vh - 22px);
-}
-
-body.showEditorSelection .code-line {
-	position: relative;
-}
-
-body.showEditorSelection .code-active-line:before,
-body.showEditorSelection .code-line:hover:before {
-	content: "";
-	display: block;
-	position: absolute;
-	top: 0;
-	left: -12px;
-	height: 100%;
-}
-
-body.showEditorSelection li.code-active-line:before,
-body.showEditorSelection li.code-line:hover:before {
-	left: -30px;
-}
-
-.vscode-light.showEditorSelection .code-active-line:before {
-	border-left: 3px solid rgba(0, 0, 0, 0.15);
-}
-
-.vscode-light.showEditorSelection .code-line:hover:before {
-	border-left: 3px solid rgba(0, 0, 0, 0.40);
-}
-
-.vscode-light.showEditorSelection .code-line .code-line:hover:before {
-	border-left: none;
-}
-
-.vscode-dark.showEditorSelection .code-active-line:before {
-	border-left: 3px solid rgba(255, 255, 255, 0.4);
-}
-
-.vscode-dark.showEditorSelection .code-line:hover:before {
-	border-left: 3px solid rgba(255, 255, 255, 0.60);
-}
-
-.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
-	border-left: none;
-}
-
-.vscode-high-contrast.showEditorSelection .code-active-line:before {
-	border-left: 3px solid rgba(255, 160, 0, 0.7);
-}
-
-.vscode-high-contrast.showEditorSelection .code-line:hover:before {
-	border-left: 3px solid rgba(255, 160, 0, 1);
-}
-
-.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
-	border-left: none;
-}
-
-img {
-	max-width: 100%;
-	max-height: 100%;
-}
-
-a {
-	text-decoration: none;
-}
-
-a:hover {
-	text-decoration: underline;
-}
-
-a:focus,
-input:focus,
-select:focus,
-textarea:focus {
-	outline: 1px solid -webkit-focus-ring-color;
-	outline-offset: -1px;
-}
-
-hr {
-	border: 0;
-	height: 2px;
-	border-bottom: 2px solid;
-}
-
-h1 {
-	padding-bottom: 0.3em;
-	line-height: 1.2;
-	border-bottom-width: 1px;
-	border-bottom-style: solid;
-}
-
-h1, h2, h3 {
-	font-weight: normal;
-}
-
-table {
-	border-collapse: collapse;
-}
-
-table > thead > tr > th {
-	text-align: left;
-	border-bottom: 1px solid;
-}
-
-table > thead > tr > th,
-table > thead > tr > td,
-table > tbody > tr > th,
-table > tbody > tr > td {
-	padding: 5px 10px;
-}
-
-table > tbody > tr + tr > td {
-	border-top: 1px solid;
-}
-
-blockquote {
-	margin: 0 7px 0 5px;
-	padding: 0 16px 0 10px;
-	border-left-width: 5px;
-	border-left-style: solid;
-}
-
-code {
-	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
-	font-size: 1em;
-	line-height: 1.357em;
-}
-
-body.wordWrap pre {
-	white-space: pre-wrap;
-}
-
-pre:not(.hljs),
-pre.hljs code > div {
-	padding: 16px;
-	border-radius: 3px;
-	overflow: auto;
-}
-
-pre code {
-	color: var(--vscode-editor-foreground);
-	tab-size: 4;
-}
-
-/** Theming */
-
-.vscode-light pre {
-	background-color: rgba(220, 220, 220, 0.4);
-}
-
-.vscode-dark pre {
-	background-color: rgba(10, 10, 10, 0.4);
-}
-
-.vscode-high-contrast pre {
-	background-color: rgb(0, 0, 0);
-}
-
-.vscode-high-contrast h1 {
-	border-color: rgb(0, 0, 0);
-}
-
-.vscode-light table > thead > tr > th {
-	border-color: rgba(0, 0, 0, 0.69);
-}
-
-.vscode-dark table > thead > tr > th {
-	border-color: rgba(255, 255, 255, 0.69);
-}
-
-.vscode-light h1,
-.vscode-light hr,
-.vscode-light table > tbody > tr + tr > td {
-	border-color: rgba(0, 0, 0, 0.18);
-}
-
-.vscode-dark h1,
-.vscode-dark hr,
-.vscode-dark table > tbody > tr + tr > td {
-	border-color: rgba(255, 255, 255, 0.18);
-}
-
-</style>
-
-<style>
-/* Tomorrow Theme */
-/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
-/* Original theme - https://github.com/chriskempson/tomorrow-theme */
-
-/* Tomorrow Comment */
-.hljs-comment,
-.hljs-quote {
-	color: #8e908c;
-}
-
-/* Tomorrow Red */
-.hljs-variable,
-.hljs-template-variable,
-.hljs-tag,
-.hljs-name,
-.hljs-selector-id,
-.hljs-selector-class,
-.hljs-regexp,
-.hljs-deletion {
-	color: #c82829;
-}
-
-/* Tomorrow Orange */
-.hljs-number,
-.hljs-built_in,
-.hljs-builtin-name,
-.hljs-literal,
-.hljs-type,
-.hljs-params,
-.hljs-meta,
-.hljs-link {
-	color: #f5871f;
-}
-
-/* Tomorrow Yellow */
-.hljs-attribute {
-	color: #eab700;
-}
-
-/* Tomorrow Green */
-.hljs-string,
-.hljs-symbol,
-.hljs-bullet,
-.hljs-addition {
-	color: #718c00;
-}
-
-/* Tomorrow Blue */
-.hljs-title,
-.hljs-section {
-	color: #4271ae;
-}
-
-/* Tomorrow Purple */
-.hljs-keyword,
-.hljs-selector-tag {
-	color: #8959a8;
-}
-
-.hljs {
-	display: block;
-	overflow-x: auto;
-	color: #4d4d4c;
-	padding: 0.5em;
-}
-
-.hljs-emphasis {
-	font-style: italic;
-}
-
-.hljs-strong {
-	font-weight: bold;
-}
-</style>
-
-<style>
-/*
- * Custom MD PDF CSS
- */
-html,footer,header{
-	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
-
- }
-body {
-	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
-	padding: 0 12px;
-}
-
-pre {
-	background-color: #f8f8f8;
-	border: 1px solid #cccccc;
-	border-radius: 3px;
-	overflow-x: auto;
-	white-space: pre-wrap;
-	overflow-wrap: break-word;
-}
-
-pre:not(.hljs) {
-	padding: 23px;
-	line-height: 19px;
-}
-
-blockquote {
-	background: rgba(127, 127, 127, 0.1);
-	border-color: rgba(0, 122, 204, 0.5);
-}
-
-.emoji {
-	height: 1.4em;
-}
-
-code {
-	font-size: 14px;
-	line-height: 19px;
-}
-
-/* for inline code */
-:not(pre):not(.hljs) > code {
-	color: #C9AE75; /* Change the old color so it seems less like an error */
-	font-size: inherit;
-}
-
-/* Page Break : use <div class="page"/> to insert page break
--------------------------------------------------------- */
-.page {
-	page-break-after: always;
-}
-
-</style>
-<link rel="stylesheet" href="file:///workspaces/aebonlee/R%3A%5C2.Travail%5C1.Enseignement%5CCours%5C_1.Outils%5C2.Developpement%5C1.SCSS%5Cmain.css" type="text/css"><link rel="stylesheet" href="file:///workspaces/aebonlee/D%3A%5Crdaros%5CCours%5C_1.Outils%5C2.Developpement%5C1.SCSS%5Cmain.css" type="text/css">
-</head>
-
-<body>
-    
-</body>
-
-</html>
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:E34C26,10:DA5B0B,30:C6538C,75:3572A5,100:A371F7&height=100&section=header&text=&fontSize=0" width="100%" height="auto"/>
+
+<p align="center">
+  <img src="./logo.jpg" height="200px" />
+</p>
+
+<h1 align="center">👩‍💻 Aebon Lee | AI & Education Specialist 🧩</h1>
+<h3 align="center"><i>"기술과 교육을 연결하고, 실천으로 혁신을 만드는 교육 설계자"</i></h3>
+
+<p align="center">
+  <!-- Animated typing SVG -->
+  <img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&size=20&pause=1000&center=true&vCenter=true&width=700&lines=AI+%F0%9F%A4%96+%C2%B7+Education+%F0%9F%93%9A+%C2%B7+Automation+%F0%9F%9A%80;Practical+Instructor%2C+Developer%2C+Curriculum+Designer;Whisper+%2B+GPT+%2F+RAG+%2F+PyTorch+Projects" />
+</p>
+
+<p align="center">
+  <img src="https://komarev.com/ghpvc/?username=aebonlee&label=Profile%20views&color=0e75b6&style=flat" alt="profile views"/>
+  <img src="https://img.shields.io/github/followers/aebonlee?label=Followers&style=social" alt="GitHub followers"/>
+  <img src="https://img.shields.io/github/stars/aebonlee?label=Stars&style=social" alt="GitHub stars"/>
+</p>
+
+---
+
+## 💖 About Me
+
+
+---
+
+## 📌 주요 프로젝트
+
+### 🔹 HRDTMS 시스템 구축
+
+### 🔹 Whisper + GPT 기반 음성비서 챗봇
+### 🔹 AHP 기반 직업훈련 역량 평가도구
+> 📎 [Notion 포트폴리오 바로가기](https://www.notion.so/kimnamkyu1119/)
+
+---
+
+## 🛠️ Tech Stack (Reorganized)
+
+### 🎨 Frontend
+<div align="center">
+<!-- Frameworks & UI -->
+<a href="https://reactjs.org/"><img src="https://profilinator.rishav.dev/skills-assets/react-original-wordmark.svg" height="50"/></a>
+<a href="https://vuejs.org/"><img src="https://profilinator.rishav.dev/skills-assets/vuejs-original-wordmark.svg" height="50"/></a>
+<a href="https://getbootstrap.com/"><img src="https://profilinator.rishav.dev/skills-assets/bootstrap-plain.svg" height="50"/></a>
+<a href="https://tailwindcss.com/"><img src="https://profilinator.rishav.dev/skills-assets/tailwindcss.svg" height="50"/></a>
+<a href="https://jquery.com/"><img src="https://profilinator.rishav.dev/skills-assets/jquery.png" height="50"/></a>
+<a href="https://www.chartjs.org/"><img src="https://profilinator.rishav.dev/skills-assets/logo-title.svg" height="50"/></a>
+<!-- Languages -->
+<a href="https://www.javascript.com/"><img src="https://profilinator.rishav.dev/skills-assets/javascript-original.svg" height="50"/></a>
+<a href="https://www.typescriptlang.org/"><img src="https://profilinator.rishav.dev/skills-assets/typescript-original.svg" height="50"/></a>
+<a href="https://en.wikipedia.org/wiki/HTML5"><img src="https://profilinator.rishav.dev/skills-assets/html5-original-wordmark.svg" height="50"/></a>
+<a href="https://www.w3schools.com/css/"><img src="https://profilinator.rishav.dev/skills-assets/css3-original-wordmark.svg" height="50"/></a>
+</div>
+
+### ⚙️ Backend & APIs
+<div align="center">
+<!-- Languages -->
+<a href="https://www.python.org/"><img src="https://profilinator.rishav.dev/skills-assets/python-original.svg" height="50"/></a>
+<a href="https://www.java.com/"><img src="https://profilinator.rishav.dev/skills-assets/java-original-wordmark.svg" height="50"/></a>
+<a href="https://developer.apple.com/swift/"><img src="https://profilinator.rishav.dev/skills-assets/swift-original-wordmark.svg" height="50"/></a>
+<a href="https://www.php.net/"><img src="https://profilinator.rishav.dev/skills-assets/php-original.svg" height="50"/></a>
+<a href="https://www.cplusplus.com/"><img src="https://profilinator.rishav.dev/skills-assets/cplusplus-original.svg" height="50"/></a>
+<a href="https://www.r-project.org/"><img src="https://profilinator.rishav.dev/skills-assets/r.svg" height="50"/></a>
+<!-- Frameworks & Runtimes -->
+<a href="https://nodejs.org/"><img src="https://profilinator.rishav.dev/skills-assets/nodejs-original-wordmark.svg" height="50"/></a>
+<a href="https://spring.io/"><img src="https://profilinator.rishav.dev/skills-assets/springio-icon.svg" height="50"/></a>
+<a href="https://flutter.dev/"><img src="https://profilinator.rishav.dev/skills-assets/flutterio-icon.svg" height="50"/></a>
+<a href="https://flask.palletsprojects.com/"><img src="https://profilinator.rishav.dev/skills-assets/flask.png" height="50"/></a>
+<a href="https://www.djangoproject.com/"><img src="https://profilinator.rishav.dev/skills-assets/django-original.svg" height="50"/></a>
+<a href="https://dotnet.microsoft.com/"><img src="https://profilinator.rishav.dev/skills-assets/dot-net-original-wordmark.svg" height="50"/></a>
+<a href="https://graphql.org/"><img src="https://profilinator.rishav.dev/skills-assets/graphql.png" height="50"/></a>
+</div>
+
+### 🧠 Data / AI
+<div align="center">
+<a href="https://opencv.org/"><img src="https://profilinator.rishav.dev/skills-assets/opencv-icon.svg" height="50"/></a>
+<a href="https://pytorch.org/"><img src="https://profilinator.rishav.dev/skills-assets/pytorch-icon.svg" height="50"/></a>
+<a href="https://powerbi.microsoft.com/"><img src="https://profilinator.rishav.dev/skills-assets/powerbi.png" height="50"/></a>
+<a href="https://www.tableau.com/"><img src="https://profilinator.rishav.dev/skills-assets/tableau.svg" height="50"/></a>
+</div>
+
+### 🗄 Databases
+<div align="center">
+<a href="https://www.mysql.com/"><img src="https://profilinator.rishav.dev/skills-assets/mysql-original-wordmark.svg" height="50"/></a>
+<a href="https://mariadb.org/"><img src="https://profilinator.rishav.dev/skills-assets/mariadb.png" height="50"/></a>
+<a href="https://www.oracle.com/"><img src="https://profilinator.rishav.dev/skills-assets/oracle-original.svg" height="50"/></a>
+<a href="https://www.mongodb.com/"><img src="https://profilinator.rishav.dev/skills-assets/mongodb-original-wordmark.svg" height="50"/></a>
+</div>
+
+### ☁️ DevOps / Infra / Tools
+<div align="center">
+<a href="https://www.linux.org/"><img src="https://profilinator.rishav.dev/skills-assets/linux-original.svg" height="50"/></a>
+<a href="https://www.gnu.org/software/bash/"><img src="https://profilinator.rishav.dev/skills-assets/gnu_bash-icon.svg" height="50"/></a>
+<a href="https://github.com/"><img src="https://profilinator.rishav.dev/skills-assets/git-scm-icon.svg" height="50"/></a>
+<a href="https://www.docker.com/"><img src="https://profilinator.rishav.dev/skills-assets/docker-original-wordmark.svg" height="50"/></a>
+<a href="https://azure.microsoft.com/"><img src="https://profilinator.rishav.dev/skills-assets/microsoft_azure-icon.svg" height="50"/></a>
+<a href="https://docs.microsoft.com/en-us/powershell/"><img src="https://profilinator.rishav.dev/skills-assets/powershell.png" height="50"/></a>
+</div>
+
+### 🎨 Design & Creative
+<div align="center">
+<a href="https://www.adobe.com/in/products/illustrator.html"><img src="https://profilinator.rishav.dev/skills-assets/adobe_illustrator-icon.svg" height="50"/></a>
+<a href="https://www.adobe.com/in/products/photoshop.html"><img src="https://profilinator.rishav.dev/skills-assets/photoshop-plain.svg" height="50"/></a>
+<a href="https://www.adobe.com/in/products/indesign.html"><img src="https://profilinator.rishav.dev/skills-assets/adobeindesign.svg" height="50"/></a>
+<a href="https://www.adobe.com/in/products/premiere.html"><img src="https://profilinator.rishav.dev/skills-assets/adobepremierepro.png" height="50"/></a>
+<a href="https://www.adobe.com/in/products/xd.html"><img src="https://profilinator.rishav.dev/skills-assets/adobexd.png" height="50"/></a>
+<a href="https://www.figma.com/"><img src="https://profilinator.rishav.dev/skills-assets/figma-icon.svg" height="50"/></a>
+<a href="https://www.adobe.com/products/photoshop-lightroom.html"><img src="https://profilinator.rishav.dev/skills-assets/lightroom.png" height="50"/></a>
+<a href="https://www.adobe.com/in/products/aftereffects.html"><img src="https://profilinator.rishav.dev/skills-assets/aftereffects.png" height="50"/></a>
+</div>
+
+---
+
+## 🏆 GitHub Trophy (Animated)
+<p align="center">
+  <img src="https://github-profile-trophy.vercel.app/?username=aebonlee&theme=flat&no-frame=true&margin-w=8&margin-h=8&row=1&column=6" />
+</p>
+
+---
+
+## 📊 GitHub Stats & Streak
+<div align="center">
+  <img src="https://github-readme-stats.vercel.app/api?username=aebonlee&show_icons=true&count_private=true&hide_border=true" height="160"/>
+  <img src="https://github-readme-streak-stats.herokuapp.com/?user=aebonlee&hide_border=true&theme=default" height="160"/>
+</div>
+
+---
+
+## 📈 Top Languages
+<div align="center">
+  <img
+    src="https://github-readme-stats.vercel.app/api/top-langs/?username=aebonlee&layout=compact&langs_count=12&card_width=450&hide_border=true&title_color=4A4A4A&text_color=333333&bg_color=ffffff&icon_color=FFB347"
+    height="220"
+  />
+</div>
+
+---
+
+
+---
+
+## 🔗 Links
+- 🌐 [Notion 포트폴리오](https://www.notion.com)
+- 📄 [Notion 이력서]
+- 💼 [LinkedIn]
+- 🎥 [YouTube (예정)]
+
+---
+
+## 📬 Contact
+📧 **Email**: kimnamkyu1119@gmail.com 
+
+> 123
+> **Feel free to connect!**
+
+---
+
+<p align="center">
+  <img src="https://capsule-render.vercel.app/api?type=rect&color=0:E34C26,10:DA5B0B,30:C6538C,75:3572A5,100:A371F7&height=40&section=footer&text=&fontSize=0" width="100%"/>
+</p>
+
+© 2024 **Aebon Lee** | Powered by Whisper, GPT, and lifelong curiosity.
